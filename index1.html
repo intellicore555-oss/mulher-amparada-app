@@ -302,6 +302,9 @@ O app não garante segurança imediata.
   </a>
 </div>
 
+<footer class="footer">
+  <span id="typing"></span>
+</footer>
 
 
     </div>
@@ -494,6 +497,47 @@ titulo.addEventListener("touchend", (e)=>{
     },200);
   }
 });
+</script>
+
+
+
+<style>
+.footer{
+  width:100%;
+  padding:20px;
+  text-align:center;
+  font-size:16px;
+  color: skyblue;
+  
+}
+
+#typing::after{
+  content:"|";
+  animation:blink 0.7s infinite;
+}
+
+@keyframes blink{
+  50%{
+    opacity:0;
+  }
+}
+</style>
+
+<script>
+const text = "Feito com ❤️ por intellicore555-oss";
+const typing = document.getElementById("typing");
+
+let i = 0;
+
+function escrever() {
+  if (i < text.length) {
+    typing.textContent += text.charAt(i);
+    i++;
+    setTimeout(escrever, 80);
+  }
+}
+
+escrever();
 </script>
 
 
