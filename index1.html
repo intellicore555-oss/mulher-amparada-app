@@ -269,7 +269,10 @@ height: 30px;
         <p>Porque depois disso aqui… não tem mais como usar coisa básica não 😮‍🔥</p>
         <p>Se prepara pra uma experiência que realmente funciona.</p>
 
-        <h1 style="margin-top:20px;">Tá pronta, princesa?</h1>
+        <h1 id="titulo" style="margin-top:20px;" class="nao">
+  Tá pronta, princesa?
+</h1>
+
         <p>Então vem sentir isso aqui na prática 💖</p>
 
 <p style="color: #ff4da6;">
@@ -300,6 +303,193 @@ O app não garante segurança imediata.
 </div>
 
 <br><br>
+
+<style>
+#titulo{
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    color .25s ease;
+
+  user-select:none;
+  text-align:center;
+}
+
+.fade-out{
+  opacity:0;
+  transform:scale(.8) translateY(10px);
+}
+
+.fade-in{
+  opacity:1;
+  transform:scale(1.08) translateY(-3px);
+}
+</style>
+
+<script>
+const titulo = document.getElementById("titulo");
+
+const frases = [
+  { texto:"Tá pronta, princesa?", cor:"red" },
+  { texto:"Tá pronta, amiga?", cor:"blue" },
+  { texto:"Tá pronta, guerreira?", cor:"green" },
+  { texto:"Tá pronta, rainha?", cor:"purple" },
+  { texto:"Tá pronta, incrível?", cor:"orange" },
+  { texto:"Você é forte 💜", cor:"pink" },
+  { texto:"Você consegue 🌸", cor:"gold" },
+  { texto:"Seu valor é enorme", cor:"crimson" },
+  { texto:"Você não está sozinha", cor:"teal" },
+  { texto:"Continue brilhando ✨", cor:"violet" },
+
+  { texto:"Tudo vai melhorar", cor:"indigo" },
+  { texto:"Respira, vai dar certo", cor:"coral" },
+  { texto:"Você merece paz", cor:"salmon" },
+  { texto:"Sua voz importa", cor:"cyan" },
+  { texto:"Você é especial", cor:"magenta" },
+  { texto:"Acredite em você", cor:"lime" },
+  { texto:"Um passo por vez", cor:"brown" },
+  { texto:"Você é luz", cor:"navy" },
+  { texto:"Seu sorriso importa", cor:"olive" },
+  { texto:"Vai ficar tudo bem", cor:"maroon" },
+
+  { texto:"Você é incrível", cor:"turquoise" },
+  { texto:"Seu coração é forte", cor:"plum" },
+  { texto:"Nunca desista", cor:"orchid" },
+  { texto:"Você inspira pessoas", cor:"tomato" },
+  { texto:"Você merece amor", cor:"khaki" },
+  { texto:"Você é suficiente", cor:"peru" },
+  { texto:"Seu futuro é lindo", cor:"chocolate" },
+  { texto:"Você tem coragem", cor:"tan" },
+  { texto:"Você é importante", cor:"slateblue" },
+  { texto:"Sua história importa", cor:"deeppink" },
+
+  { texto:"Seu brilho é único", cor:"dodgerblue" },
+  { texto:"Você nasceu para vencer", cor:"firebrick" },
+  { texto:"Você é admirável", cor:"forestgreen" },
+  { texto:"Você pode recomeçar", cor:"hotpink" },
+  { texto:"Sua presença faz diferença", cor:"darkorange" },
+  { texto:"Você merece felicidade", cor:"darkviolet" },
+  { texto:"Você é maravilhosa", cor:"deepskyblue" },
+  { texto:"Você é rara", cor:"lightseagreen" },
+  { texto:"Você é acolhida aqui", cor:"mediumvioletred" },
+  { texto:"Você é muito querida", cor:"mediumblue" },
+
+  { texto:"Seu coração é gigante", cor:"mediumorchid" },
+  { texto:"Você é resiliente", cor:"midnightblue" },
+  { texto:"Você é capaz", cor:"moccasin" },
+  { texto:"Você ilumina vidas", cor:"royalblue" },
+  { texto:"Você merece descanso", cor:"rosybrown" },
+  { texto:"Seu caminho será lindo", cor:"sienna" },
+  { texto:"Você é mais forte do que pensa", cor:"springgreen" },
+  { texto:"Você é um presente", cor:"steelblue" },
+  { texto:"Seu esforço vale muito", cor:"thistle" },
+  { texto:"Você é extraordinária", cor:"wheat" },
+
+  { texto:"Você tem valor", cor:"yellowgreen" },
+  { texto:"Seu amanhã será melhor", cor:"aliceblue" },
+  { texto:"Você é cheia de vida", cor:"antiquewhite" },
+  { texto:"Você merece cuidado", cor:"aquamarine" },
+  { texto:"Seu coração importa", cor:"azure" },
+  { texto:"Você é única", cor:"beige" },
+  { texto:"Você é preciosa", cor:"bisque" },
+  { texto:"Você merece sorrir", cor:"blanchedalmond" },
+  { texto:"Seu sonho importa", cor:"blueviolet" },
+  { texto:"Você é muito amada", cor:"burlywood" },
+
+  { texto:"Você é incrível do seu jeito", cor:"cadetblue" },
+  { texto:"Sua força inspira", cor:"chartreuse" },
+  { texto:"Você consegue superar", cor:"cornflowerblue" },
+  { texto:"Você merece carinho", cor:"cornsilk" },
+  { texto:"Você é admirada", cor:"darkcyan" },
+  { texto:"Você é esperança", cor:"darkgoldenrod" },
+  { texto:"Seu coração é bonito", cor:"darkgreen" },
+  { texto:"Você merece recomeços", cor:"darkkhaki" },
+  { texto:"Você é valiosa", cor:"darkmagenta" },
+  { texto:"Você pode vencer isso", cor:"darkred" },
+
+  { texto:"Você é mais forte hoje", cor:"darksalmon" },
+  { texto:"Você merece tranquilidade", cor:"darkseagreen" },
+  { texto:"Você é incrível sempre", cor:"darkslateblue" },
+  { texto:"Você é digna de amor", cor:"darkturquoise" },
+  { texto:"Você é inspiração", cor:"dimgray" },
+  { texto:"Você merece paz interior", cor:"gainsboro" },
+  { texto:"Você é cheia de potencial", cor:"ghostwhite" },
+  { texto:"Você merece respeito", cor:"greenyellow" },
+  { texto:"Você é muito especial", cor:"honeydew" },
+  { texto:"Você merece apoio", cor:"ivory" },
+
+  { texto:"Você pode confiar em si", cor:"lavender" },
+  { texto:"Seu coração é precioso", cor:"lavenderblush" },
+  { texto:"Você é incrível todos os dias", cor:"lawngreen" },
+  { texto:"Você merece esperança", cor:"lemonchiffon" },
+  { texto:"Você é cheia de coragem", cor:"lightblue" },
+  { texto:"Você é um raio de luz", cor:"lightcoral" },
+  { texto:"Você merece amor verdadeiro", cor:"lightcyan" },
+  { texto:"Você é muito forte", cor:"lightgoldenrodyellow" },
+  { texto:"Você merece acolhimento", cor:"lightgreen" },
+  { texto:"Você é linda por dentro", cor:"lightpink" },
+
+  { texto:"Você é importante para alguém", cor:"lightsalmon" },
+  { texto:"Você merece viver feliz", cor:"lightyellow" },
+  { texto:"Você é gigante", cor:"linen" },
+  { texto:"Você é uma vencedora", cor:"mediumaquamarine" },
+  { texto:"Você merece um novo começo", cor:"mediumpurple" },
+  { texto:"Você é cheia de sonhos", cor:"mistyrose" },
+  { texto:"Você merece dias leves", cor:"navajowhite" },
+  { texto:"Você é cheia de esperança", cor:"oldlace" },
+  { texto:"Você merece ser ouvida", cor:"palegreen" },
+  { texto:"Você é mais forte que o medo", cor:"peachpuff" }
+];
+
+let index = parseInt(localStorage.getItem("fraseIndex")) || 0;
+
+if(index >= frases.length){
+  index = 0;
+}
+
+function aplicarFrase(){
+  titulo.innerText = frases[index].texto;
+  titulo.style.color = frases[index].cor;
+
+  localStorage.setItem("fraseIndex", index);
+}
+
+aplicarFrase();
+
+let startX = 0;
+
+titulo.addEventListener("touchstart", (e)=>{
+  startX = e.touches[0].clientX;
+});
+
+titulo.addEventListener("touchend", (e)=>{
+  const endX = e.changedTouches[0].clientX;
+
+  if(Math.abs(endX - startX) > 50){
+
+    titulo.classList.add("fade-out");
+
+    setTimeout(()=>{
+
+      index++;
+
+      if(index >= frases.length){
+        index = 0;
+      }
+
+      aplicarFrase();
+
+      titulo.classList.remove("fade-out");
+      titulo.classList.add("fade-in");
+
+      setTimeout(()=>{
+        titulo.classList.remove("fade-in");
+      },250);
+
+    },200);
+  }
+});
+</script>
 
 
 <!-- BARRA INFERIOR ONE UI -->
@@ -409,4 +599,3 @@ fetch(url, {
 
 </body>
 </html>
-
