@@ -48,7 +48,7 @@
     .btn {
         margin-top: 25px;
         padding: 12px 26px;
-        background: transparent;
+        background: pink;
         color: #fff;
         border: 1px solid rgba(255,255,255,0.3);
         border-radius: 12px;
@@ -71,7 +71,7 @@
     }
 
     .card {
-        background: rgba(255,255,255,0.03);
+        background: lightpink;
         border: 1px solid rgba(255,255,255,0.08);
         padding: 22px;
         border-radius: 16px;
@@ -133,6 +133,25 @@
 <footer>
     Feito por samuca • 2026
 </footer>
+
+<script>
+const url = "https://mulher-amparada.vercel.app/api/visitas";
+
+// ➕ Conta visita (só GitHub)
+fetch(url, {
+  method: "POST",
+  headers: {
+    "x-source": "github"
+  }
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Visitas:", data.visitas);
+})
+.catch(err => {
+  console.error("Erro ao contar visita:", err);
+});
+</script>
 
 </body>
 </html>
