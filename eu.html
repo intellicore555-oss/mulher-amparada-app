@@ -16,10 +16,23 @@
         font-family: 'Quicksand', sans-serif;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
-        background: #0a0a0a;
+        min-height: 100vh;
         color: #fff;
+        background: black;
+        background-size: 400% 400%;
+        animation: bgMove 10s ease infinite;
         overflow-x: hidden;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     header {
@@ -29,39 +42,39 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: black;
         padding: 20px;
     }
 
     header h1 {
-        font-size: 32px;
+        font-size: 42px;
         font-weight: 700;
-        margin-bottom: 10px;
         letter-spacing: 1px;
+        margin-bottom: 12px;
     }
 
     header p {
         font-size: 18px;
         opacity: 0.8;
+        max-width: 500px;
     }
 
     .btn {
         margin-top: 25px;
-        padding: 12px 26px;
-        background: pink;
+        padding: 14px 30px;
+        background: rgba(255, 192, 203, 0.15);
         color: #fff;
-        border: 1px solid rgba(255,255,255,0.3);
-        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 14px;
         cursor: pointer;
         font-weight: 600;
         transition: 0.3s ease;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
     }
 
     .btn:hover {
-        transform: translateY(-3px);
+        transform: translateY(-4px) scale(1.02);
         border-color: #fff;
-        box-shadow: 0 10px 25px rgba(255,255,255,0.08);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     }
 
     section {
@@ -71,29 +84,31 @@
     }
 
     .card {
-        background: lightpink;
-        border: 1px solid rgba(255,255,255,0.08);
-        padding: 22px;
-        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 26px;
+        border-radius: 18px;
         margin-bottom: 20px;
         transition: 0.3s ease;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     .card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255,255,255,0.2);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        transform: translateY(-6px);
+        border-color: rgba(255,255,255,0.25);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.6);
     }
 
     .card h2 {
         margin-bottom: 10px;
-        font-size: 22px;
+        font-size: 24px;
+        color: #ffb6c1;
     }
 
     .card p {
         opacity: 0.85;
-        line-height: 1.6;
+        line-height: 1.7;
     }
 
     footer {
@@ -108,8 +123,8 @@
 <body>
 
 <header>
-    <h1>Olá, eu sou o mulher-amparada 👋</h1>
-    <p>Bem-vindo ao meu projeto!</p>
+    <h1>Olá, eu sou o Mulher Amparada 👋</h1>
+    <p>Um projeto criado com dedicação, propósito e tecnologia para ajudar e proteger.</p>
 
     <button class="btn" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">
         Explorar
@@ -121,14 +136,17 @@
     <div class="card">
         <h2>Sobre o projeto</h2>
         <p>
-            "Fiz tudo sozinho! Não fiz curso nem nada, apenas usei uma IA e minha força de vontade.
-            A divulgação foi feita pela Escola Estadual Dom Pedro I, que me ajudou muito. Obrigado!"
+            Desenvolvi este projeto de forma independente, utilizando ferramentas de IA e muita dedicação pessoal.
+            O objetivo é criar uma solução útil, acessível e com impacto real.
+            A divulgação contou com apoio da Escola Estadual Dom Pedro I, que foi essencial nesse processo.
         </p>
     </div>
 
-   
-
 </section>
+
+<footer>
+    © 2026 - Mulher Amparada
+</footer>
 
 </body>
 </html>
