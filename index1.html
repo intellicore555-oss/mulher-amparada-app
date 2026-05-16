@@ -139,37 +139,7 @@ p{
 @keyframes float{50%{transform:translateY(-20px);}}
 
 /* ========== WARNING CARD ========== */
-.warning-card{
-  margin:30px auto;
-  padding:18px 20px;
 
-  border-radius:16px;
-  background:rgba(255,77,166,.06);
-  border:1px solid rgba(255,77,166,.25);
-
-  color:#ffd1e8;
-  font-size:14px;
-  line-height:1.6;
-
-  backdrop-filter:blur(12px);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.4),
-    inset 0 1px 0 rgba(255,255,255,.05);
-
-  position:relative;
-}
-
-.warning-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:10%;
-  width:3px;
-  height:80%;
-  background:linear-gradient(#ff4fa3,#ff1e85);
-  border-radius:10px;
-}
 
 /* ========== BOTÃO DOWNLOAD ========== */
 .btn-download{
@@ -354,6 +324,35 @@ svg {
 width: 28px;
 height: 28px;
 }
+
+.pill{
+  display:inline-block;
+  padding:12px 22px;
+
+  border-radius:999px;
+
+  color: pink;
+  font-weight:600;
+  letter-spacing:1px;
+
+  background:rgba(255,255,255,0.08);
+
+  border:1px solid gray;
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+
+  transition:.3s ease;
+}
+
+.pill:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.12);
+}
 </style>
 </head>
 
@@ -366,44 +365,22 @@ height: 28px;
 
   <div class="container">
 
-      <div class="label">
-    Mensagem final
-  </div>
+      <div class="pill">
+  Mulher Amparada
+</div>
   
+<br><br>
+
 <h1 class="title">Então, o que me diz?</h1>
 
     <p class="subtitle">
       Depois disso aqui… não tem mais como voltar pro básico 😮‍🔥
     </p>
-
-    <h2 id="titulo" class="dynamic-title">Tá pronta?</h2>
-
-    <p class="subtitle">
-      Vem sentir isso na prática 💖
-    </p>
-    
-<br><br><br><br>
-  <div class="label">
-    Importante
-  </div>
-  
-    <!-- CARD DE ALERTA -->
-    <div class="warning-card">
-      
-      <p>
-        Este aplicativo é uma ferramenta complementar.<br>
-        Ele não substitui serviços oficiais ou emergenciais.
-      </p>
-
-      <p>
-        Algumas funções dependem de serviços externos.<br>
-        O app não garante segurança imediata.
-      </p>
-    </div>
+   
 
 <br><br><br><br>
   <div class="label">
-    Botão de download
+    Botões 
   </div>
   
     <!-- BOTÃO PRINCIPAL -->
@@ -411,12 +388,7 @@ height: 28px;
       Baixar aplicativo<br>
       <span>Versão final</span>
     </a>
-    
-    <br><br><br><br>
-
-  <div class="label">
-    Sobre mim
-  </div>
+   
   
   
     <!-- BOTÃO SECUNDÁRIO -->
@@ -589,4 +561,3 @@ if (titulo) {
 
 </body>
 </html>
-
